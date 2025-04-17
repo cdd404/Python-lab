@@ -1,0 +1,24 @@
+# Open the file in read mode
+with open("sample.txt", "r") as text:  # Using 'with' ensures the file is properly closed afterward
+    # Create an empty dictionary
+    word_count = {}
+
+    # Loop through each line in the file
+    for line in text:
+        # Remove leading/trailing spaces and newline characters, and convert to lowercase
+        line = line.strip().lower()
+        
+        # Split the line into words
+        words = line.split()
+
+        # Iterate over each word in the line
+        for word in words:
+            # Check if the word exists in the dictionary
+            if word in word_count:
+                word_count[word] += 1  # Increment its count
+            else:
+                word_count[word] = 1  # Initialize its count
+
+# Print the word frequencies
+for key, value in word_count.items():
+    print(f"{key}: {value}")
