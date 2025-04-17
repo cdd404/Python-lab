@@ -1,0 +1,11 @@
+def char_frequency(str1):
+    freq_dict = {}  # Use a more descriptive variable name
+    for n in str1:
+        if n in freq_dict:
+            freq_dict[n] += 1  # Increment the count
+        else:
+            freq_dict[n] = 1  # Initialize the count
+    return freq_dict
+
+str1 = input("Enter the multi-digit number: ")
+print(char_frequency(str1))
