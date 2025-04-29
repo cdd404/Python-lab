@@ -1,0 +1,27 @@
+class Student:
+ def _init_ (self, name = "", usn = ""):
+ self.name = name
+ self.usn = usn
+
+ def getStudentDetails(self):
+ self.usn = input("Enter USN : ")
+ self.name = input("Enter Name : ")
+ self.subject1 = int(input("Enter subject1 marks : "))
+ self.subject2 = int(input("Enter subject2 Marks : "))
+ self.subject3 = int(input("Enter subject3 Marks : "))
+
+ def printResult(self):
+ self.total = (int)(self.subject1 + self.subject2 + self.subject3)
+ self.percentage = (int)( (self.subject1 + self.subject2 + self.subject3) / 300 * 100 ); 
+ print("USN Name total percentage")
+ print(self.us.total, self.percentage)
+
+ if self.percentage < 35:
+ print("student", self.name , "has failed")
+ else:
+ print("Student", self.name, "has passed")
+
+S1 = Student()
+S1.getStudentDetails()
+print("Result : ")
+S1.printResult()
