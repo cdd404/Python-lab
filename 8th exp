@@ -1,0 +1,11 @@
+def DivExp(a, b):
+ try:
+ c = a / b
+ print("Quotient:", c)
+ except ZeroDivisionError:
+ print("Division by Zero!")
+
+a = int(input("Enter the value of a: "))
+b = int(input("Enter the value of b: "))
+
+result = (DivExp(a, b))
