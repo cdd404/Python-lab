@@ -1,20 +1,10 @@
 import numpy as np
-
-# Initialize an empty list
 lst = []
-
-# Number of elements as input
-n = int(input("Enter the number of elements: "))
-
-# Iterating to input elements into the list
-for i in range(n):
-    ele = int(input(f"Enter element {i+1}: "))
+n=int(input("enter number of elements: "))
+for i in range (0,n):
+    ele=int(input(f"enter the elements {i+1}: "))
     lst.append(ele)
-
-# Display the list
-print("List elements are:", lst)
-
-# Calculate and display the statistics
-print("Mean is:", np.average(lst))
-print("Variance is:", np.var(lst))
-print("Standard deviation is:", np.std(lst))
+print("all the ele",lst)
+print("mean",np.average(lst))
+print("varience",np.var(lst))
+print("std dev",np.std(lst))
