@@ -1,0 +1,48 @@
+import pandas as pd
+import numpy as np
+import plotly.express as px
+import plotly.graph_objects as go
+
+data = pd.DataFrame({
+    'Date': pd.date_range(start='2023-01-01', periods=20, freq='D'),
+    'Value': np.random.randint(50, 150, size=20)
+})
+
+fig = px.line(
+    data,
+    x='Date',
+    y='Value',
+    title='Sample Time Series (Plotly Express)',
+    labels={'Date': 'Date', 'Value': 'Value'}
+)
+fig.update_layout(xaxis_title='Date', yaxis_title='Value')
+fig.show()
+
+data2 = pd.DataFrame({
+    'Date': pd.date_range(start='2023-01-01', periods=20, freq='D'),
+    'Series_A': np.random.randint(50, 150, size=20),
+    'Series_B': np.random.randint(30, 100, size=20)
+})
+
+fig2 = go.Figure()
+fig2.add_trace(go.Scatter(
+    x=data2['Date'],
+    y=data2['Series_A'],
+    mode='lines+markers',
+    name='Series A',
+    line=dict(color='blue')
+))
+fig2.add_trace(go.Scatter(
+    x=data2['Date'],
+    y=data2['Series_B'],
+    mode='lines+markers',
+    name='Series B',
+    line=dict(color='orange', dash='dash')
+))
+fig2.update_layout(
+    title='Time Series with Multiple Series (Plotly Graph Objects)',
+    xaxis_title='Date',
+    yaxis_title='Value',
+    legend_title='Series'
+)
+fig2.show()
