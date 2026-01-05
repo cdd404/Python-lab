@@ -1,0 +1,56 @@
+import numpy as np
+import plotly.graph_objects as go
+
+t = np.linspace(start=0, stop=10, num=200)
+x = np.cos(t)
+y = np.sin(t)
+z = t
+
+fig_scatter = go.Figure(data=[go.Scatter3d(
+    x=x,
+    y=y,
+    z=z,
+    mode='markers',
+    marker=dict(
+        size=5,
+        color=z,
+        colorscale='Viridis',
+        opacity=0.8
+    )
+)])
+
+fig_scatter.update_layout(
+    title="3D Scatter Plot (Helix)",
+    scene=dict(
+        xaxis_title="X",
+        yaxis_title="Y",
+        zaxis_title="Z"
+    )
+)
+
+fig_scatter.show()
+
+grid_n = 50
+x_vals = np.linspace(-3, 3, num=grid_n)
+y_vals = np.linspace(-3, 3, num=grid_n)
+x_grid, y_grid = np.meshgrid(x_vals, y_vals)
+z_grid = np.cos(x_grid**2 + y_grid**2)
+
+fig_surface = go.Figure(data=[go.Surface(
+    x=x_grid,
+    y=y_grid,
+    z=z_grid,
+    colorscale='RdBu',
+    opacity=0.9
+)])
+
+fig_surface.update_layout(
+    title="3D Surface Plot: z = cos(x^2 + y^2)",
+    scene=dict(
+        xaxis_title="X",
+        yaxis_title="Y",
+        zaxis_title="Z"
+    )
+)
+
+fig_surface.show()
