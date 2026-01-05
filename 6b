@@ -1,0 +1,29 @@
+import matplotlib.pyplot as plt
+
+years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+karnataka = [45, 48, 50, 53, 57, 60, 63, 67, 70, 74]
+kerala = [35, 37, 39, 42, 45, 47, 50, 52, 55, 58]
+
+plt.plot(
+    years, karnataka,
+    color='green', linestyle='--', linewidth=2,
+    marker='o', markersize=6, markerfacecolor='yellow',
+    label='Karnataka'
+)
+
+plt.plot(
+    years, kerala,
+    color='blue', linestyle='-.', linewidth=2,
+    marker='s', markersize=6, markerfacecolor='red',
+    label='Kerala'
+)
+
+plt.title("Electricity Consumption in Karnataka and Kerala (2015-2024)", fontsize=14)
+plt.xlabel("Year", fontsize=12)
+plt.ylabel("Electricity Consumption (Billion Units)", fontsize=12)
+
+plt.grid(visible=True, linestyle=':', alpha=0.6)
+plt.legend()
+plt.style.use('seaborn-v0_8-whitegrid')
+
+plt.show()
